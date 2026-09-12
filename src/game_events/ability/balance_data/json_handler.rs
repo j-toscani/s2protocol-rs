@@ -1,5 +1,6 @@
 //! Writes a snapshot of the BalanceData read from XML into JSON format for posterity.
 
+#[cfg(feature = "included_assets")]
 use include_assets::{NamedArchive, include_dir};
 use serde_json::json;
 use std::collections::HashMap;
@@ -93,6 +94,7 @@ pub fn read_balance_data_from_json_dir<P: AsRef<Path>>(
     Ok(balance_data)
 }
 
+#[cfg(feature = "included_assets")]
 pub fn read_balance_data_from_included_assets()
 -> Result<HashMap<(u32, String), VersionedBalanceUnit>, Box<dyn Error>> {
     tracing::info!("Reading balance data from included assets");

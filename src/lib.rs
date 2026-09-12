@@ -7,6 +7,7 @@ pub mod cache_handles;
 
 pub mod common;
 pub mod details;
+#[cfg(feature = "included_assets")]
 pub mod dir_stats;
 pub mod error;
 pub mod filters;
